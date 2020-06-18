@@ -27,10 +27,10 @@ rm(data_subject_train, data_subject_test)
 labels <- read.table("features.txt")
 labels[] <- lapply(labels, as.character)
 mean_and_std_indices <- grep(".*mean\\(\\).*|.*std\\(\\).*", labels$V2)
-mean_and_std_res <- data_X[,mean_and_std_indices]
+data_X <- data_X[,mean_and_std_indices]
 
 # Remove extra values
-rm(labels, mean_and_std_indices)
+rm(labels)
 
 ## STEP 3
 # Activities names to dataset
@@ -51,6 +51,7 @@ features_names <- gsub("()", "", features_names, fixed = TRUE)
 features_names <- gsub("-", "", features_names)
 features_names <- gsub(",", "", features_names)
 features_names <- tolower(features_names)
+features_names <- features_names[mean_and_std_indices]
 names(data_X) <- features_names
 
 # Remove extra values
