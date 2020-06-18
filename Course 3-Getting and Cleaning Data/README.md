@@ -1,7 +1,4 @@
----
-title: "Getting and Cleaning data Project"
-output: html_document
----
+# Getting and Cleaning data Project
 
 ### Working of run_analysis.R
 
